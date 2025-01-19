@@ -1,0 +1,15 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    color: blue;
+}
+
+.highlight {
+    color: orange;
+}
+
+#special {
+    text-decoration: underline;
+}
