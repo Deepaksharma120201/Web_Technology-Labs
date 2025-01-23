@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form with Various Controls</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h1 {
+            text-align: center;
+            color: steelblue;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group input[type="checkbox"],
+        .form-group input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .form-group select[multiple] {
+            height: 100px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: steelblue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Sample Form</h1>
+        <form action="#">
+            <!-- Single Line Text Field -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" size="30" value="Enter your name" maxlength="50">
+            </div>
+
+            <!-- Dropdown List -->
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- Scrolled List -->
+            <div class="form-group">
+                <label for="hobbies">Hobbies (Select multiple):</label>
+                <select id="hobbies" name="hobbies[]" multiple>
+                    <option value="reading">Reading</option>
+                    <option value="traveling">Traveling</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="sports">Sports</option>
+                    <option value="cooking">Cooking</option>
+                </select>
+            </div>
+
+            <!-- Checkbox Controls -->
+            <div class="form-group">
+                <label>Preferred Contact Method:</label>
+                <input type="checkbox" id="email" name="contact_method" value="email">
+                <label for="email">Email</label>
+                <input type="checkbox" id="phone" name="contact_method" value="phone">
+                <label for="phone">Phone</label>
+                <input type="checkbox" id="text" name="contact_method" value="text">
+                <label for="text">Text</label>
+            </div>
+
+            <!-- Radio Controls -->
+            <div class="form-group">
+                <label>Choose Your Subscription Plan:</label>
+                <input type="radio" id="basic" name="plan" value="basic">
+                <label for="basic">Basic</label>
+                <input type="radio" id="premium" name="plan" value="premium">
+                <label for="premium">Premium</label>
+                <input type="radio" id="pro" name="plan" value="pro">
+                <label for="pro">Pro</label>
+            </div>
+
+            <!-- Text Area with Wrapping Options -->
+            <div class="form-group">
+                <label for="feedback">Feedback:</label>
+                <textarea id="feedback" name="feedback" rows="5" cols="30" wrap="soft"
+                    placeholder="Write your feedback here..."></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
