@@ -16,8 +16,8 @@
                 </xs:complexType>
               </xs:element>
               <xs:element name="author" type="xs:string" />
-              <xs:element name="year" type="xs:string" />
-              <xs:element name="price" type="xs:string" />
+              <xs:element name="year" type="xs:integer" />
+              <xs:element name="price" type="xs:float" />
             </xs:sequence>
             <xs:attribute name="category" use="required" />
           </xs:complexType>

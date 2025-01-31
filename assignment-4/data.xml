@@ -5,7 +5,7 @@
   <book category="cooking">
     <title lang="en">Everyday Italian</title>
     <author>Giada De Laurentiis</author>
-    <year>2005</year>
+    <year>2002</year>
     <price>30.00</price>
   </book>
   <book category="children">
@@ -13,5 +13,11 @@
     <author>J.K. Rowling</author>
     <year>2005</year>
     <price>29.99</price>
+  </book>
+  <book category="comics">
+    <title lang="en">Marvel</title>
+    <author>Stan lee</author>
+    <year>1995</year>
+    <price>49.99</price>
   </book>
 </bookstore>
