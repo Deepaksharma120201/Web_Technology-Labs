@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Mapping Example</title>
-  <style>
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab-2 : Iframes</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font: 1em sans-serif;
+            font-weight: 400;
+        }
+        .main_div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font: 1em sans-serif;
+            font-weight: 400;
+            width: 100%;
+        }
+        h1{
+            padding: 10px;
+            width: 100%;
+            background-color: burlywood;
+            color: #000;
+            text-align: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
-  <h1>Clickable Devices Image Map</h1>
-  <img src="istockphoto.jpg" alt="Devices on a Wooden Table" usemap="#devices-map">
-  <map name="devices-map">
-    <!-- Laptop -->
-    <area shape="rect" coords="41 75 380 568" href="https://www.pexels.com/search/laptops/" alt="Laptop">
-    <!-- Phone -->
-    <area shape="rect" coords="458 229 531 395" href="https://www.pexels.com/search/phones/" alt="Phone">
-    <!-- Tablet -->
-    <area shape="rect" coords="674 76 954 254" href="https://www.pexels.com/search/tablets/" alt="Tablet">
-    <!-- Controller -->
-    <area shape="rect" coords="465 422 642 580" href="https://www.pexels.com/search/controllers/" alt="Controller">
-    <!-- Purse -->
-    <area shape="rect" coords="450 52 602 182" href="https://www.pexels.com/search/purses/" alt="Purse">
-    <!-- USB -->
-    <area shape="rect" coords="590 290 624 374" href="https://www.pexels.com/search/usb/" alt="USB">
-  </map>
+    <header style="width: 100%;">
+        <h1>Welcome to My webpage</h1>
+    </header>
+    <div class="main_div">
+        <iframe src="main.html" width=50% height="300" title="Welcome to Github" name="myFrame"></iframe>
+    
+        <p>Click the links to navigate to different Media Tags</p>
+        <ul style="display: flex; flex-direction:column; background-color:  burlywood; padding: 20px; margin: 20px; align-items: center; width: 100px; height: 100px; justify-content: space-evenly;">
+            <li><a href="audio_frame.html" target="myFrame">Audio</a></li>
+            <li><a href="video_frame.html" target="myFrame">Video</a></li>
+            <li><a href="image_frame.html" target="myFrame">Image</a></li>
+        </ul>
+    </div>
+    <footer style="bottom: 0; color: wheat; background-color: rgb(27, 175, 178); width: 100%; text-align: center;">
+        <p>&copy; 2025 Iframe webpage maintained by Nitkkr...</p>
+    </footer>
 </body>
 </html>
