@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookies & Regex</title>
+    <script>
+      function pingServer() {
+        fetch("http://localhost:8000/", {
+          withCredentials: true,
+          credentials: "include",
+        })
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error(error));
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Cookies & Regex</h1>
+    <button onclick="pingServer()">Ping Server</button>
+
+    <input type="text" id="email" placeholder="Enter your email" />
+    <button onclick="checkEmail()">Check Email</button>
+
+    <p id="responseMessage"></p>
+
+    <script>
+      function checkEmail() {
+        const email = document.getElementById("email").value;
+        fetch("http://localhost:8000/check-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+          withCredentials: true,
+          credentials: "include",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("responseMessage").innerText = data.message;
+            console.log(data);
+          })
+          .catch((error) => console.error(error));
+      }
+    </script>
+  </body>
+</html>
