@@ -16,7 +16,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.cookie("userId", "1234", {
+  res.cookie("userId", "1178", {
     expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), // 7 days
     secure: true,
     sameSite: "None",
