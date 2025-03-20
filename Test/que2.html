@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Registration Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+      }
+      form {
+        background: white;
+        padding: 20px;
+        max-width: 400px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+      }
+      .checkbox-group input,
+      .radio-group input {
+        width: auto;
+        margin-right: 5px;
+      }
+      button {
+        margin-top: 10px;
+        padding: 10px;
+        background: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+      }
+      .price {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Event Registration Form</h2>
+    <form id="eventForm">
+      <label>Full Name:</label>
+      <input type="text" name="name" required />
+
+      <label>Email:</label>
+      <input type="email" name="email" required />
+
+      <label>Contact Number:</label>
+      <input type="tel" name="contact" required />
+
+      <label>Event Category:</label>
+      <select id="eventCategory" onchange="calculatePrice()">
+        <option value="100">Technology - $100</option>
+        <option value="120">Business - $120</option>
+        <option value="80">Health - $80</option>
+      </select>
+
+      <label>Meal Preferences:</label>
+      <div class="checkbox-group">
+        <input type="checkbox" id="veg" value="10" onclick="calculatePrice()" />
+        Vegetarian (+$10) <br />
+        <input
+          type="checkbox"
+          id="nonveg"
+          value="15"
+          onclick="calculatePrice()"
+        />
+        Non-Vegetarian (+$15) <br />
+      </div>
+
+      <label>Ticket Type:</label>
+      <div class="radio-group">
+        <input
+          type="radio"
+          name="ticket"
+          value="50"
+          onclick="calculatePrice()"
+        />
+        Standard (+$50) <br />
+        <input
+          type="radio"
+          name="ticket"
+          value="100"
+          onclick="calculatePrice()"
+        />
+        VIP (+$100) <br />
+      </div>
+
+      <label>Session Preferences:</label>
+      <div class="radio-group">
+        <input
+          type="radio"
+          name="session"
+          value="20"
+          onclick="calculatePrice()"
+        />
+        Morning (+$20) <br />
+        <input
+          type="radio"
+          name="session"
+          value="30"
+          onclick="calculatePrice()"
+        />
+        Evening (+$30) <br />
+      </div>
+
+      <p class="price">Total Price: $<span id="totalPrice">100</span></p>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <script>
+      function calculatePrice() {
+        let total = parseInt(document.getElementById("eventCategory").value);
+
+        let checkboxes = document.querySelectorAll(
+          ".checkbox-group input:checked"
+        );
+        checkboxes.forEach((box) => (total += parseInt(box.value)));
+
+        let ticket = document.querySelector('input[name="ticket"]:checked');
+        if (ticket) total += parseInt(ticket.value);
+
+        let session = document.querySelector('input[name="session"]:checked');
+        if (session) total += parseInt(session.value);
+
+        document.getElementById("totalPrice").innerText = total;
+      }
+    </script>
+  </body>
+</html>

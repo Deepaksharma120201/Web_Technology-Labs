@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="que3.xsl"?>
+<furniture>
+    <chair>
+        <color>Red</color>
+        <price>150</price>
+        <material>Wood</material>
+        <date_of_manufacture>2023-06-15</date_of_manufacture>
+        <brand_name>WoodCraft</brand_name>
+    </chair>
+    <chair>
+        <color>Blue</color>
+        <price>180</price>
+        <material>Metal</material>
+        <date_of_manufacture>2024-01-10</date_of_manufacture>
+        <brand_name>SteelChairs</brand_name>
+    </chair>
+</furniture>

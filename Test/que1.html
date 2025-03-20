@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Hotel Booking Form</h2>
+    <form id="bookingForm">
+        <label>Full Name:</label>
+        <input type="text" name="name" required>
+
+        <label>Contact Info:</label>
+        <input type="tel" name="contact" required>
+
+        <label>Check-in Date:</label>
+        <input type="date" id="checkin" required>
+
+        <label>Check-out Date:</label>
+        <input type="date" id="checkout" required>
+
+        <label>Room Type:</label>
+        <select>
+            <option>Single</option>
+            <option>Double</option>
+            <option>Suite</option>
+        </select>
+
+        <label>Payment Method:</label>
+        <select>
+            <option>Credit Card</option>
+            <option>Debit Card</option>
+            <option>PayPal</option>
+        </select>
+
+        <label>Amenities:</label>
+        <input type="checkbox"> Free WiFi
+        <input type="checkbox"> Breakfast
+        <input type="checkbox"> Pool Access
+
+        <button type="submit">Book Now</button>
+    </form>
+
+    <script>
+        document.getElementById("checkin").addEventListener("change", function() {
+            let checkinDate = new Date(this.value);
+            let today = new Date();
+            today.setHours(0,0,0,0);
+            
+            if (checkinDate < today) {
+                alert("Check-in date cannot be in the past!");
+                this.value = "";
+            }
+        });
+
+        document.getElementById("checkout").addEventListener("change", function() {
+            let checkinDate = new Date(document.getElementById("checkin").value);
+            let checkoutDate = new Date(this.value);
+            
+            if (checkoutDate <= checkinDate) {
+                alert("Check-out date must be after Check-in date!");
+                this.value = "";
+            }
+        });
+    </script>
+
+</body>
+</html>
