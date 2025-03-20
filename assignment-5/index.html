@@ -17,11 +17,14 @@
     </script>
   </head>
   <body>
-    <h1>Cookies & Regex</h1>
+    <h1>Working with Cookies & Regex</h1>
     <button onclick="pingServer()">Ping Server</button>
 
-    <input type="text" id="email" placeholder="Enter your email" />
+    <input type="text" id="email" placeholder="Enter email address" required/>
     <button onclick="checkEmail()">Check Email</button>
+    
+    <input type="text" id="mobile" placeholder="Enter mobile number" required/>
+    <button onclick="checkMobile()">Check Number</button>
 
     <p id="responseMessage"></p>
 
