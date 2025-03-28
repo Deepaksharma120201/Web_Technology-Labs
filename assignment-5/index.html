@@ -4,9 +4,78 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cookies & Regex</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px 0;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #responseMessage {
+        margin-top: 20px;
+        color: #333;
+        font-size: 16px;
+      }
+
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        width: 100%;
+        margin: 20px 0;
+      }
+
+      input[type="email"] {
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Email address, Cookies & Regex</h1>
+    <button onclick="pingServer()">Ping Server</button>
+
+    <div class="input-container">
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter email address"
+        required
+      />
+      <button onclick="checkEmail()">Validate Email</button>
+    </div>
+
+    <p id="responseMessage"></p>
+
     <script>
       function pingServer() {
-        fetch("http://localhost:8000/", {
+        fetch("http://localhost:8100/home", {
           withCredentials: true,
           credentials: "include",
         })
@@ -14,24 +83,10 @@
           .then((data) => console.log(data))
           .catch((error) => console.error(error));
       }
-    </script>
-  </head>
-  <body>
-    <h1>Working with Cookies & Regex</h1>
-    <button onclick="pingServer()">Ping Server</button>
 
-    <input type="text" id="email" placeholder="Enter email address" required/>
-    <button onclick="checkEmail()">Check Email</button>
-    
-    <input type="text" id="mobile" placeholder="Enter mobile number" required/>
-    <button onclick="checkMobile()">Check Number</button>
-
-    <p id="responseMessage"></p>
-
-    <script>
       function checkEmail() {
         const email = document.getElementById("email").value;
-        fetch("http://localhost:8000/check-email", {
+        fetch("http://localhost:8100/check-email", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
